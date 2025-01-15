@@ -1,3 +1,5 @@
+@props(['job'])
+
 <x-panel class="flex-col">
     <div class="self-start text-sm">Laracasts</div>
     <div class="py-8">
@@ -6,10 +8,10 @@
     </div>
     <div class="flex justify-between items-end mt-auto">
         <div class="space-x-1">
-            <x-tag>BackEnd</x-tag>
-            <x-tag>FrontEnd</x-tag>
-            <x-tag>API</x-tag>
+            @foreach($job->tags as $tag)
+                <x-tag :$tag size="normal"/>
+            @endforeach
         </div>
-        <img class="bg-white h-10 w-10 rounded-lg" src="" alt=""/>
+        <x-logo :width="40"/>
     </div>
 </x-panel>

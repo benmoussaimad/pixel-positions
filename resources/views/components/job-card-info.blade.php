@@ -1,6 +1,8 @@
+@props(['job'])
+
 <x-panel class="flex-row space-x-5">
     <div>
-        <img class="bg-white h-24 w-24 rounded-lg" src="" alt=""/>
+        <x-logo/>
     </div>
     <div class="flex flex-col w-full">
         <div class="flex justify-between items-center">
@@ -16,9 +18,9 @@
         <div class="flex justify-between items-end mt-auto">
             <p class="text-sm text-white/60">Full Time - from $60,000</p>
             <div class="space-x-1">
-                <x-tag>BackEnd</x-tag>
-                <x-tag>FrontEnd</x-tag>
-                <x-tag>API</x-tag>
+                @foreach($job->tags as $tag)
+                    <x-tag :$tag size="normal"/>
+                @endforeach
             </div>
         </div>
     </div>
